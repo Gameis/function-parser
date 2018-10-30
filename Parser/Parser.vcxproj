@@ -115,10 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Calculator.h" />
     <ClInclude Include="FunctionParser.h" />
     <ClInclude Include="StringTokenizer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="FunctionParser.cpp" />
     <ClCompile Include="StringTokenizer.cpp" />
   </ItemGroup>
