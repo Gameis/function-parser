@@ -1,4 +1,4 @@
-#include "functionparser.h"
+#include "FunctionParser.h"
 
 bool FunctionParser::isOperation(const string & token) const
 {
@@ -27,7 +27,6 @@ bool FunctionParser::isFunction(const string & token) const
 	return false;
 }
 
-
 bool FunctionParser::isDelimiter(const string & token)
 {
 	for (auto & el : _delims)
@@ -37,7 +36,6 @@ bool FunctionParser::isDelimiter(const string & token)
 	return false;
 }
 
-
 FunctionParser::FunctionParser()
 {
 	_flag = true;
@@ -45,7 +43,6 @@ FunctionParser::FunctionParser()
 	_parsedExpression = nullptr;
 	_functions = nullptr;
 }
-
 
 FunctionParser::~FunctionParser()
 {
@@ -60,7 +57,6 @@ FunctionParser::~FunctionParser()
 		_functions = nullptr;
 	}
 }
-
 
 FunctionParser::FunctionParser(const string & expression, const vector<string> & functions) : FunctionParser()
 {
@@ -82,7 +78,6 @@ vector<string> FunctionParser::getParsedExpression() const
 {
 	return _parsedExpression == nullptr ? vector<string>() : *_parsedExpression;
 }
-
 
 bool FunctionParser::parseExpression()
 {

@@ -1,4 +1,4 @@
-#include "stringtokenizer.h"
+#include "StringTokenizer.h"
 
 bool StringTokenizer::isDelimeter(char ch, const string & delimeters)
 {
