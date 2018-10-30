@@ -261,5 +261,5 @@ __pycache__/
 *.pyc
 
 *.vcxproj
-*.vcxproj.user
-*.vcxproj.filters
+*.user
+*.filters
