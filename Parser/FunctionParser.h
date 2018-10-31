@@ -71,7 +71,7 @@ public:
 	FunctionParser();
 	~FunctionParser();
 
-	explicit FunctionParser(const string & expression, const vector<string> & functions);
+	explicit FunctionParser(const vector<string> & functions, const string & expression = string());
 
 	////////////////////////////////////////////////////////////
 	/// \brief ”станавливает новое выражение дл€ обработки

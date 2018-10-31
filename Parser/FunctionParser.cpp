@@ -58,7 +58,7 @@ FunctionParser::~FunctionParser()
 	}
 }
 
-FunctionParser::FunctionParser(const string & expression, const vector<string> & functions) : FunctionParser()
+FunctionParser::FunctionParser(const vector<string> & functions, const string & expression) : FunctionParser()
 {
 	_expression = expression;
 	_functions = new vector<string>(functions);
@@ -83,8 +83,7 @@ bool FunctionParser::parseExpression()
 {
 	if (_expression.empty())
 	{
-		_flag = false;
-		return _flag;
+		return false;
 	}
 	StringTokenizer * tokens = new StringTokenizer(_delims, _expression);
 	_parsedExpression = new vector<string>();
@@ -95,8 +94,7 @@ bool FunctionParser::parseExpression()
 		string curr = tokens->nextToken();
 		if (!tokens->hasMoreTokens() && isOperation(curr))
 		{
-			_flag = false;
-			return _flag;
+			return false;
 		}
 		if (curr == " " || curr == "\t") continue;
 		if (isFunction(curr)) stk->push(curr);
@@ -111,8 +109,7 @@ bool FunctionParser::parseExpression()
 					stk->pop();
 					if (stk->empty())
 					{
-						_flag = false;
-						return _flag;
+						return false;
 					}
 				}
 				stk->pop();
@@ -155,10 +152,8 @@ bool FunctionParser::parseExpression()
 		}
 		else
 		{
-			_flag = false;
-			return _flag;
+			return false;
 		}
 	}
-	_flag = true;
-	return _flag;
+	return true;
 }

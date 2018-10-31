@@ -263,3 +263,4 @@ __pycache__/
 *.vcxproj
 *.user
 *.filters
+/Parser/main.cpp

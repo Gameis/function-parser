@@ -116,12 +116,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Calculator.h" />
+    <ClInclude Include="DRVCalc.h" />
     <ClInclude Include="FunctionParser.h" />
     <ClInclude Include="StringTokenizer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="DRVCalc.cpp" />
     <ClCompile Include="FunctionParser.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="StringTokenizer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
