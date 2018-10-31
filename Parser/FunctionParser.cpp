@@ -74,9 +74,14 @@ string FunctionParser::getExpression() const
 	return _expression;
 }
 
-vector<string> FunctionParser::getParsedExpression() const
-{
-	return _parsedExpression == nullptr ? vector<string>() : *_parsedExpression;
+vector<string> & FunctionParser::getParsedExpression() const
+	{
+	if(_parsedExpression == nullptr)
+		{
+		vector<string> a;
+		return a;
+		}
+	else return *_parsedExpression;
 }
 
 bool FunctionParser::parseExpression()

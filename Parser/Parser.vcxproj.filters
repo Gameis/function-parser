@@ -27,6 +27,15 @@
     <ClInclude Include="DRVCalc.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Saver.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FunctionParser.cpp">
@@ -42,6 +51,15 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="DRVCalc.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Saver.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
