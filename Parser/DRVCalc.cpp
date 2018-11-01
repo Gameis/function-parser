@@ -90,6 +90,18 @@ double DRVCalc::getMiddleMomentFourthOrder() const
 	}
 
 
+double DRVCalc::getAsim() const
+	{
+	return getMiddleMomentThirdOrder() / pow(getRmsDeviation(), 3);
+	}
+
+
+double DRVCalc::getExcess() const
+	{
+	return getMiddleMomentFourthOrder() / pow(getRmsDeviation(), 4);
+	}
+
+
 vector<pair<double, double>> & DRVCalc::getCurrentDistribRange() const
 	{
 	return *_distributionRange;

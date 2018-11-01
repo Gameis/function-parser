@@ -19,12 +19,14 @@ private:
 
 	uint16_t _status = 0;
 
-	void drvWork();
+	void drvWork() const;
 
-	void expressionWork();
+	void expressionWork() const;
 public:
 	Model();
 	~Model();
+
+	void differinate();
 
 	int exec();
 	};

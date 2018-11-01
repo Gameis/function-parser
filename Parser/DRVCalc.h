@@ -29,6 +29,9 @@ public:
 	double getMiddleMomentThirdOrder() const;
 	double getMiddleMomentFourthOrder() const;
 
+	double getAsim() const;
+	double getExcess() const;
+
 	vector<pair<double, double>> & getCurrentDistribRange() const;
 	};
 

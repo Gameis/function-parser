@@ -53,7 +53,11 @@ double Calculator::calculate(const vector<string> & postfixExpression) const
 	char * useless;
 	for (auto & el : postfixExpression)
 	{
-		if (el == "^")
+		if(el == "x")
+			{
+			stk->push(_xVal);
+			}
+		else if (el == "^")
 		{
 			const double exp = stk->top();
 			stk->pop();
@@ -116,3 +120,9 @@ double Calculator::calculate(const vector<string> & postfixExpression) const
 	}
 	return stk->top();
 }
+
+
+void Calculator::setXVal(double xVal)
+	{
+	_xVal = xVal;
+	}

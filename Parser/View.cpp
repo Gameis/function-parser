@@ -25,6 +25,7 @@ char View::promptActivity() const
 	setColor(YELLOW_C);
 	cout << "\t1 - Find value of function by the x" << endl;
 	cout << "\t2 - Find numeric properties of DRV" << endl;
+	cout << "\t3 - Find numeric differination of function" << endl;
 	cout << "\t0 - Exit" << endl;
 	string result;
 	getline(cin, result);
@@ -149,7 +150,7 @@ void View::print(const vector<string> & context, char delim) const
 	}
 
 
-string View::getExpression()
+string View::getExpression() const
 	{
 	cout << "Input expression: ";
 	string buff;

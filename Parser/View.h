@@ -49,7 +49,7 @@ public:
 
 	void print(const vector<string> & context, char delim = ' ') const;
 
-	string getExpression();
+	string getExpression() const;
 
 	double getX() const;
 	};

@@ -25,6 +25,7 @@ class Calculator
 	vector<function<double(double)>> * _funcs;
 
 	int getFunctionIdNyName(const string & token) const;
+	double _xVal = 0;
 
 public:
 	Calculator();
@@ -52,6 +53,8 @@ public:
 	///
 	////////////////////////////////////////////////////////////
 	double calculate(const vector<string> & postfixExpression) const;
+
+	void setXVal(double xVal);
 	};
 
 #endif //CALCULATOR_H

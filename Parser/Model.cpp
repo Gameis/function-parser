@@ -1,7 +1,7 @@
 #include "Model.h"
 
 
-void Model::drvWork()
+void Model::drvWork() const
 	{
 	_drv->setDistributionRange(_view->getDistribRange());
 	_view->printDistribRange(_drv->getCurrentDistribRange());
@@ -15,13 +15,15 @@ void Model::drvWork()
 		{
 		_view->print(string("Initial moment of the ") + char(i + 1 + '0') + string(" order: "), _drv->getInitialMoment(i + 1));
 		}
+	_view->print(string("Asimmetry: "), _drv->getAsim());
+	_view->print(string("Excess: "), _drv->getExcess());
 	_view->setColor(YELLOW_C, YELLOW_C);
 	_view->print(string("=============================================================="));
 	_view->setColor(YELLOW_C);
 	}
 
 
-void Model::expressionWork()
+void Model::expressionWork() const
 	{
 	_view->setColor(YELLOW_C, YELLOW_C);
 	_view->print(string("=============================================================="));
@@ -45,13 +47,7 @@ void Model::expressionWork()
 	_view->print(tmp);
 
 	double x = _view->getX();
-	for ( auto & el : tmp )
-		{
-		if(el == "x")
-			{
-			el = to_string(x);
-			}
-		}
+	_calc->setXVal(x);
 	const double answer = _calc->calculate(tmp);
 	_view->print(string("Y: "), answer);
 	_view->setColor(YELLOW_C, YELLOW_C);
@@ -103,6 +99,43 @@ Model::~Model()
 	delete _functionNames;
 }
 
+void Model::differinate()
+	{
+	_view->setColor(YELLOW_C, YELLOW_C);
+	_view->print(string("=============================================================="));
+	_view->setColor(YELLOW_C);
+	bool parsed = false;
+	do
+	{
+		_funcParser->setExpression(_view->getExpression());
+		parsed = _funcParser->parseExpression();
+		if (!parsed)
+		{
+			_view->pError();
+			_view->setColor(RED_C);
+			_view->print(string("Invalid expression"));
+			_view->setColor(YELLOW_C);
+		}
+	} while (!parsed);
+	const vector<string> tmp = _funcParser->getParsedExpression();
+	const vector<string> tmpD(tmp);
+	_view->print("Postfix Polish notation:");
+	_view->print(tmp);
+	double x = _view->getX();
+	_calc->setXVal(x);
+	const double tmpVal = _calc->calculate(tmp);
+
+	const double dx = 1e-10;
+	x += dx;
+	_calc->setXVal(x);
+	const double tmpDVal = _calc->calculate(tmpD);
+	const double answer = (tmpDVal - tmpVal)/dx;
+	
+	_view->print(string("f(x0)': "), answer);
+	_view->setColor(YELLOW_C, YELLOW_C);
+	_view->print(string("=============================================================="));
+	_view->setColor(YELLOW_C);
+	}
 
 int Model::exec()
 	{
@@ -121,6 +154,11 @@ int Model::exec()
 			case '2':
 				{
 				drvWork();
+				break;
+				}
+			case '3':
+				{
+				differinate();
 				break;
 				}
 			case '0':
